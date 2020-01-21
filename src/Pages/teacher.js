@@ -56,12 +56,11 @@ const TeacherPage = ({ match }) => {
             >
               {lessons.data && lessons.data.length
                 ? lessons.data.map((item, idx) => {
-                    return(
-                      <Col md={4}>
-
-                       <CardItem {...item} key={idx} />;
-                       </Col>
-                    )
+                    return (
+                      <Col md={4} key={idx} className="mb-5">
+                        <CardItem {...item} />
+                      </Col>
+                    );
                   })
                 : ""}
             </Col>

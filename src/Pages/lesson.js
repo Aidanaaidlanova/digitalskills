@@ -11,8 +11,9 @@ const Lesson = ({ match }) => {
   const [select, setSelect] = useState(0);
 
   useEffect(() => {
+    console.log("componentDidMount");
     API.getLesson(match.params.id)
-      .then(res => setData(res.data))
+      .then(res => {setData(res.data); console.log("Data: ", res.data)})
       .catch(error => console.log(error));
   }, []);
 
@@ -34,9 +35,11 @@ const Lesson = ({ match }) => {
   };
   const nextBtnClicked = () => {
     setSelect(select + 1);
+    console.log(data);
     scrollTop();
   };
   const prevBtnClicked = () => {
+    
     setSelect(select - 1);
     scrollTop();
   };

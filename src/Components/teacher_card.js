@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 const TeacherCard = ({id,image,name,surname,position,language,about}) => {
   return (
-    <Col md={4}>
+    <Col md={4} className="mb-3">
       <Card className = {"border-0 shadow mb-3"}
             style={{height: '500px'}}>
         <Media className={"d-flex align-items-center justify-content-center pr-3 pl-3 pt-3 pb-0"}>
@@ -23,8 +23,8 @@ const TeacherCard = ({id,image,name,surname,position,language,about}) => {
           <CardText className={"text-muted teacher-card-about-text"}>{about}</CardText>
           <p>Язык преподования: <b>{language === "ru" ? "Русский" : "Кыргызский"}</b></p>
           <div className={"w-100 d-flex justify-content-center main-card-button-pos"}>
-            <Link to={`/teacher/${id}`} className={"mx-auto d-inline-block mb-3"}>
-              <Button color={"faded"} tag={"span"} className={"card_custom_button rounded-0 pl-md-5 pr-md-5 pt-md-3 pb-md-3"}>
+            <Link to={`/teacher/${id}`} className={"mx-auto d-inline-block mb-3 text-decoration-none"}>
+              <Button color={"faded"} tag={"span"} className={"card_custom_button rounded-0 btn btn-faded d-flex justify-content-center align-items-center"}>
                 <b>Подробнее</b>
               </Button>
             </Link>

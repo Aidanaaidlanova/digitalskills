@@ -163,8 +163,5 @@ font-size: 30px;
 	.coursebutton ,.coursebutton2{
 		margin: 0 auto;
 	}
-	.course-about{
-	word-break: break-all !important;
 
-	}
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Collapse,
   Navbar,
@@ -7,7 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Container
+  Container,
+  Button
 } from "reactstrap";
 import "../styles/main.css";
 import { Link } from "react-router-dom";
@@ -15,17 +16,41 @@ import logo from "../assets/icon/image 54.png";
 
 const Example = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [lang,setLang] = useState(localStorage.getItem('language'));
   const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
+  const handleChange = (language) => {
+    localStorage.setItem('language',language);
+    setLang(language);
+    window.location.reload(true);
+  };
 
   return (
     <Navbar className="header" light expand="md">
-      <Container>
+      <Container fluid>
         <NavbarBrand tag={"div"}>
           <Link to="/">
             <img src={logo} alt={logo} />
           </Link>
         </NavbarBrand>
+
+        <div className={"d-block d-md-none"}>
+          <Button color={"faded"}
+                  className={`header-button shadow-none ${lang === 'ru' ? '' : 'text-muted'}`}
+                  onClick={() => handleChange('ru')}>
+            Рус
+          </Button>
+          <Button color={"faded"}
+                  className={`header-button shadow-none ${lang === 'kg' ? '' : 'text-muted'}`}
+                  onClick={() => handleChange('kg')}>
+            Кырг
+          </Button>
+        </div>
+
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar className={"w-100 d-flex justify-content-center"}>
@@ -51,6 +76,18 @@ const Example = () => {
             </NavItem>
           </Nav>
         </Collapse>
+        <div className={"d-none d-md-block"}>
+          <Button color={"faded"}
+                  className={`header-button shadow-none ${lang === 'ru' ? '' : 'text-muted'}`}
+                  onClick={() => handleChange('ru')}>
+            Рус
+          </Button>
+          <Button color={"faded"}
+                  className={`header-button shadow-none ${lang === 'kg' ? '' : 'text-muted'}`}
+                  onClick={() => handleChange('kg')}>
+            Кырг
+          </Button>
+        </div>
       </Container>
     </Navbar>
   );

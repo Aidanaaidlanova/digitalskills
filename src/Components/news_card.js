@@ -15,30 +15,36 @@ const News_card = ({ title, image, views, pub_date, id }) => {
 
   return (
     <div>
+      
       <Link to={`/news/${id}`} className={"text-decoration-none text-dark"}>
-
-      <Card className={"border-0 shadow mb-2"} style={{ maxWidth: "552px" }}>
-        <Row>
-          <Col className="col-12 col-md-6">
-            <CardImg width="100%" src={image} />
-          </Col>
-          <Col
-            className={
-              "d-flex pl-0 justify-content-around flex-column col-12 col-md-6 p-4 py-lg-0"
-            }
-          >
-              <CardTitle className="news_title text-dark mb-0">{filterTitle}</CardTitle>
-            <CardText className={"d-flex justify-content-between"}>
+        <div
+          className={"col-12 col-lg-6 d-flex mb-3 shadow rounded "}
+          style={{ maxWidth: "552px", minHeight: "140px" }}
+        >
+          <Row>
+            <Col className={"px-0 col-12 col-lg-6"}>
+              <img
+                className={"img-fluid w-100  rounded"}
+                src={image}
+                alt="img"
+              />
+            </Col>
+            <Col
+              className={
+                "d-flex justify-content-between flex-column p-4 col-12 col-lg-6"
+              }
+            >
+             <CardTitle className="news_title text-dark mb-0">{filterTitle}</CardTitle>
+            <CardText className={"d-flex justify-content-between align-items-center mt-4"}>
               <small className="text-muted">{views} просмотров</small>
-              <small className="pr-2">
-                <b>{moment(pub_date).format("Do MMMM YYYY")}</b>
+              <small className="ml-2">
+                <p className="text-muted">{moment(pub_date).format("Do MMMM YYYY")}</p>
               </small>
             </CardText>
-          </Col>
-        </Row>
-      </Card>
+            </Col>
+          </Row>
+        </div>
       </Link>
-
     </div>
   );
 };

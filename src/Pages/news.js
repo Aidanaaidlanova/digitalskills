@@ -42,7 +42,7 @@ const News = ({ match }) => {
               <Col md={8}>
                 <Link
                   className={"news_custom-link mt-5 mb-5 d-inline-block"}
-                  to={"/"}
+                  to={"/all-news"}
                 >
                   Вернуться назад
                 </Link>

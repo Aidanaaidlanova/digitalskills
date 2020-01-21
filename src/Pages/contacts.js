@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Row,
@@ -35,18 +35,15 @@ const ContactBodyItem = ({ image, body, className }) => {
 };
 
 const Contacts = () => {
-  const [name, setName] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState(0);
-  const [textQuestion, setQuestion] = useState("");
-
-  let data = {
-    name: name,
-    phone: phoneNumber,
-    text: textQuestion
-  };
-
   const postData = e => {
     e.preventDefault();
+    let formData = new FormData(e.target),
+      data = {};
+
+    formData.forEach(function(value, key) {
+      data[key] = value;
+    });
+
     let target = e.target;
     API.postData("api/comments/", data)
       .then(response => {
@@ -73,7 +70,7 @@ const Contacts = () => {
       })
       .catch(error => {
         Swal.fire({
-          text: "Проверьте данные!",
+          text: error,
           width: 500,
           height: 500,
           showConfirmButton: true,
@@ -142,9 +139,8 @@ const Contacts = () => {
               <FormGroup>
                 <Input
                   type="text"
-                  name="first-name"
+                  name="name"
                   placeholder="Имя"
-                  onChange={e => setName(e.target.value)}
                   required
                   className={
                     "border-top-0 border-left-0 border-right-0 rounded-0 bg-faded shadow-none contacts-form__input mb-4"
@@ -154,10 +150,9 @@ const Contacts = () => {
               <FormGroup>
                 <Input
                   type="tel"
-                  name="phone-number"
+                  name="phone"
                   placeholder="+996"
                   pattern="^\(?\+([9]{2}?[6])\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{3})$"
-                  onChange={e => setPhoneNumber(e.target.value)}
                   required
                   className={
                     "border-top-0 border-left-0 border-right-0 rounded-0 bg-faded shadow-none contacts-form__input mb-4"
@@ -167,10 +162,9 @@ const Contacts = () => {
               <FormGroup>
                 <Input
                   type={"textarea"}
-                  name="question"
+                  name="text"
                   placeholder="Ваш вопрос"
                   required
-                  onChange={e => setQuestion(e.target.value)}
                   className={
                     "border-top-0 border-left-0 border-right-0 rounded-0 bg-faded shadow-none contacts-form__input contacts-form__textarea mb-4"
                   }

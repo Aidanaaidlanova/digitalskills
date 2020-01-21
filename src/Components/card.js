@@ -38,13 +38,19 @@ const CardItem = ({ name, image, id, language, category_name }) => {
         <p
           className={"w-100 d-flex justify-content-center main-card-button-pos"}
         >
-          <Link to={`/course/${id}`} className={"mx-auto d-inline-block"}>
+          
+          <Link
+            to={`/course/${id}`}
+            className={"mx-auto d-inline-block mb-3 text-decoration-none"}
+          >
             <Button
-              tag={"span"}
               color={"faded"}
-              className={"card_custom_button rounded-0 pl-md-5 pr-md-5 pt-md-3 pb-md-3"}
+              tag={"span"}
+              className={
+                "card_custom_button rounded-0 btn btn-faded d-flex justify-content-center align-items-center"
+              }
             >
-              Подробнее
+              <b>Подробнее</b>
             </Button>
           </Link>
         </p>

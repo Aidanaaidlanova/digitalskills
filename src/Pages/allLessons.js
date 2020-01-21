@@ -24,6 +24,7 @@ const AllLessons = () => {
   const [categoryData, setCategoryData] = useState([]);
   const count = 3;
   useEffect(() => {
+    document.title = "Все курсы";
     API.getCategoryLessons(choiceID, page, count)
       .then(res => setCategoryData(res.data))
       .catch(e => console.error(e));
@@ -81,7 +82,7 @@ const AllLessons = () => {
           <Col
             md={12}
             className={
-              "d-flex justify-content-lg-between align-items-center mt-5 flex-wrap justify-content-center"
+              "d-flex justify-content-lg-between align-items-center my-5 flex-wrap justify-content-center"
             }
           >
             <p className={"h1 text-uppercase"}>Все уроки</p>

@@ -1,3 +1,7 @@
+p {
+  margin-bottom: 0!important;
+ 
+}
 .news-content div{
 	width: 100% !important;
 }
@@ -7,8 +11,10 @@
 font-style: normal;
 font-weight: bold;
 font-size: 18px;
-line-height: 30px;
+line-height: 22px;
 }
+
+
 
 @media (max-width: 765px) {
 	.main-news-subtitle{

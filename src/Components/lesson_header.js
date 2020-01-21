@@ -14,7 +14,7 @@ const LessonHeader = props => {
     API.getCourse(props.MatchParamsId)
       .then(res => setData(res.data))
       .catch(e => console.log(e));
-  }, [props]);
+  }, []);
 
   const toggle = () => setIsOpen(!isOpen);
 

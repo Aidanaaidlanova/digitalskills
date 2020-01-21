@@ -15,6 +15,7 @@ const AllNews = () => {
   const count = 5;
 
   useEffect(() => {
+    document.title = "Все новости";
     API.getAllNews(page, count)
       .then(res => setData(res.data))
       .catch(e => console.error(e));
@@ -42,7 +43,6 @@ const AllNews = () => {
     }
     return buttons;
   };
-  console.log(data.data);
 
   return (
     <div className="wrapper">
@@ -56,44 +56,50 @@ const AllNews = () => {
           >
             новости
           </p>
-          {data && data.data ? (
-            <Link
-              to={`/news/${data.data[0].id}`}
-              className={"text-decoration-none text-dark"}
-            >
-              <div className={"col-12 mx-2 d-flex mb-5  shadow  rounded "}>
-                <Row>
-                  <Col className={"pl-0 col-12 col-lg-6"}>
-                    <img
-                      className={"img-fluid w-100  rounded"}
-                      src={data.data[0].image}
-                      alt="img"
-                    />
-                  </Col>
-                  <Col
-                    className={
-                      "d-flex justify-content-between flex-column py-3 py-lg-5 px-4 col-12 col-lg-6"
-                    }
-                  >
-                    <p className={"h3 contacts-subtitle main-news-subtitle"}>
-                      {data.data[0].title}
-                    </p>
-
-                    <div className="w-100 d-flex justify-content-between">
-                      <p className="text-muted main-news-views">
-                        {data.data[0].views} просмотров
+          <div className="col-12">
+            {data && data.data ? (
+              <Link
+                to={`/news/${data.data[0].id}`}
+                className={"text-decoration-none text-dark"}
+              >
+                <div
+                  className={"col-12 d-flex mb-5 shadow rounded "}
+                  style={{ minHeight: "312px" }}
+                >
+                  <Row>
+                    <Col className={"px-0 col-12 col-lg-6"}>
+                      <img
+                        className={"img-fluid w-100  rounded"}
+                        src={data.data[0].image}
+                        alt="img"
+                      />
+                    </Col>
+                    <Col
+                      className={
+                        "d-flex justify-content-between flex-column p-4 col-12 col-lg-6"
+                      }
+                    >
+                      <p className={"h3 contacts-subtitle main-news-subtitle"}>
+                        {data.data[0].title}
                       </p>
-                      <b className="mb-0 text-dark main-news-date">
-                        {moment(data.data[0].pub_date).format("Do MMMM YYYY")}
-                      </b>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-            </Link>
-          ) : (
-            ""
-          )}
+
+                      <div className="w-100 d-flex justify-content-between mt-4">
+                        <p className="text-muted main-news-views">
+                          {data.data[0].views} просмотров
+                      </p>
+                        <p className="mb-0 text-dark main-news-date text-muted">
+                          {moment(data.data[0].pub_date).format("Do MMMM YYYY")}
+                        </p>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Link>
+            ) : (
+                ""
+              )}
+          
+          </div>
           {data && data.data && data.data.length ? (
             data.data.map((item, idx) =>
               idx > 0 ? (

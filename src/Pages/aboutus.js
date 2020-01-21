@@ -14,6 +14,7 @@ class Aboutus extends Component {
   };
 
   componentDidMount() {
+    document.title = "О проекте";
     API.getDataAboutUs()
       .then(res => this.setState({ data: res.data }))
       .catch(e => console.error(e));

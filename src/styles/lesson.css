@@ -64,7 +64,6 @@
   color: #fff;
   background-color: #2d5199;
 }
-
 .lesson-prev-btn {
   position: fixed;
   left: 350px;
@@ -82,7 +81,7 @@
   text-align: left !important;
   font-family: Muller !important;
   font-size: 16px ! important;
-  overflow: hidden;
+  overflow:hidden !important;
 
 }
 
@@ -100,6 +99,9 @@
 
 .lesson-content-block div {
   width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+
 
 }
 
@@ -146,4 +148,5 @@
   .lesson-content-block {
     padding: 10px 20px !important;
   }
+ 
 }
