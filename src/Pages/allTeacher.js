@@ -19,7 +19,6 @@ const AllTeacher = () => {
       })
       .catch(e => console.error(e));
   }, [page]);
-
   const createPage = () => {
     let buttons = [],
       pages = Math.ceil(allTeachers.total / count);
