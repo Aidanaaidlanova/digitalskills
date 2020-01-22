@@ -11,9 +11,8 @@ const Lesson = ({ match }) => {
   const [select, setSelect] = useState(0);
 
   useEffect(() => {
-    console.log("componentDidMount");
     API.getLesson(match.params.id)
-      .then(res => {setData(res.data); console.log("Data: ", res.data)})
+      .then(res => setData(res.data))
       .catch(error => console.log(error));
   }, []);
 
@@ -35,7 +34,6 @@ const Lesson = ({ match }) => {
   };
   const nextBtnClicked = () => {
     setSelect(select + 1);
-    console.log(data);
     scrollTop();
   };
   const prevBtnClicked = () => {
@@ -71,13 +69,7 @@ const Lesson = ({ match }) => {
             </div>
           </div>
           <div className="lesson-content-block col-md-12 col-lg-8 mx-lg-4  shadow  mb-5">
-            {sortData.length > 0 ? (
-              <div className="mt-4" key={sortData[select].id}>
-                {ReactHtmlParser(sortData[select].content)}
-              </div>
-            ) : (
-              ""
-            )}
+            
             {sortData.length > 0 ? (
               <div>
                 {select > 0 ? (

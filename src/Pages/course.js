@@ -17,7 +17,6 @@ class Course extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount at course.js");
     API.getCourse(this.props.match.params.id)
       .then(res => {
         this.setState({
@@ -25,7 +24,6 @@ class Course extends React.Component {
         });
         API.getTeacherData(this.state.lesson.teacher_id)
           .then(res => {
-            console.log("GET query");
             this.setState({
               teacher: res.data
             });
@@ -79,7 +77,7 @@ class Course extends React.Component {
                       Открыть курс
                     </Link>
                   </div>
-                  {this.state.lesson.isOnline == true ? (
+                  {this.state.lesson.isOnline ? (
                     <div className={"col-md  my-2"}>
                       <a
                         href={registration_link}
@@ -130,7 +128,8 @@ class Course extends React.Component {
                 ""
               )}
             </Row>
-            <div className="mb-2 mt-5">
+
+            <div className="mt-5 mb-2">
               <p className={"teacher text-lg-left text-center"}>
                 {" "}
                 Преподаватель{" "}
@@ -149,16 +148,18 @@ class Course extends React.Component {
                 />
               </Col>
               <Col className={"col-12 mt-2 col-lg-7 text-lg-left text-center"}>
-                <p className={" teacher-title my-2 "}>
+
+                <p className={"teacher-title my-2 "}>
                   {this.state.teacher.name} {this.state.teacher.surname}
                 </p>
-                <p className={"teacher-subtitler my-3 "}>
+                <p className={"teacher-subtitler my-3"}>
                   {this.state.teacher.position}
                 </p>
                 <p className={"course-about text-lg-left text-center"}>
                   {this.state.teacher.about}
                 </p>
                 <p className="course-about text-lg-left text-center my-3">
+
                   Язык препадования:{" "}
                   <b>
                     {this.state.teacher.language === "ru"
