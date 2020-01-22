@@ -6,7 +6,6 @@ if (window.location.pathname === "/admin") {
 
 const http = Axios.create({ baseURL: "https://digiskills.kg/" });
 let lang = localStorage.getItem("language");
-lang = lang ? lang : "ru";
 
 export default {
   getAllLessons: (page, count) =>

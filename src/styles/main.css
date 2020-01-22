@@ -1,6 +1,6 @@
-html {
-	scroll-behavior: smooth;
-}
+/*html {*/
+/*	scroll-behavior: smooth;*/
+/*}*/
 .mainphoto{
 	background: url('../assets/img/main.png') center center;
 	/*background-size: cover;*/
