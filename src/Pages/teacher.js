@@ -38,12 +38,12 @@ const TeacherPage = ({ match }) => {
               md={7}
               className={"ml-md-5 d-flex flex-column justify-content-center"}
             >
-              <p className={"h2 teacher-page"}>
+              <p className={"h2 teacher-page my-2"}>
                 {name} {surname}
               </p>
-              <p className={"teacher-page teacher-subtitle"}>{position}</p>
+              <p className={"teacher-page teacher-subtitle my-3"}>{position}</p>
               <p className={"teacher-archive"}>{about}</p>
-              <p>
+              <p className="my-3">
                 Язык преподования:{" "}
                 <b>{language === "ru" ? "Русский" : "Кыргызский"}</b>
               </p>

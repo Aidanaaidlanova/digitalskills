@@ -57,6 +57,8 @@
 	height: 181px;
 	background: rgba(45, 81, 153, 0.05);
 	margin-top: 100px;
+	line-height: 45px;
+	text-align: left;
 }
 .course-title{
 	font-family: Muller;
@@ -77,13 +79,10 @@
 	text-align: justify;
 }
 .details-course{
-	text-align: center;
 	font-family: Muller;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 22px;
-	padding-top: 31px;
-	line-height: 27px;
 	color: #2D5199;
 }
 .DET{
@@ -91,9 +90,7 @@
 	font-style: normal;
 	font-weight: 500;
 	font-size: 18px;
-	line-height: 27px;
 	color: #ABABAB;
-	margin-left: 50px;
 }
 .date_course{
 	color: #2D5199;
@@ -110,9 +107,9 @@
 .teacher-title{
 	font-family: Muller;
 font-weight: bold;
-font-size: 36px;
+font-size: 35px;
 line-height: 30px;
-color: #000000;
+color: #2D5199;
 }
 .teacher-subtitler{
 	font-family: Muller;
@@ -121,7 +118,7 @@ font-weight: bold;
 font-size: 20px;
 line-height: 24px;
 
-color: #848484;
+color: #2D5199;
 }
 .teacher-info{
 	color: #000;
@@ -132,7 +129,8 @@ color: #848484;
 }
 .teacher-page-btn{
 height: 50px;
-width: 300px;
+width: 280px;
+
 background-color: #2D5199;
 border:none;
 font-family: Muller;
