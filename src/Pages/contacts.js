@@ -43,7 +43,7 @@ const Contacts = () => {
     formData.forEach(function(value, key) {
       data[key] = value;
     });
-  
+
     let target = e.target;
     API.postData("api/comments/", data)
       .then(response => {
@@ -70,7 +70,7 @@ const Contacts = () => {
       })
       .catch(error => {
         Swal.fire({
-          text: "Проверьте данные!",
+          text: error,
           width: 500,
           height: 500,
           showConfirmButton: true,

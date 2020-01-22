@@ -30,7 +30,7 @@ class Main extends React.Component {
       )
       .catch(e => console.error(e));
 
-    API.allTeachers(0,3)
+    API.allTeachers(0, 3)
       .then(res =>
         this.setState({
           teachers: res.data
@@ -40,7 +40,6 @@ class Main extends React.Component {
   }
 
   render() {
-
     return (
       <div className={"w-100 overflow-hidden"}>
         <Header />

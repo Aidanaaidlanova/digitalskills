@@ -123,6 +123,10 @@ body {
     font-family: MullerBold;
 }
 
+.footer-copyright {
+    opacity: 0.4;
+}
+
 @media (max-width: 768px) {
     .card_custom_title {
         font-size: 14px;

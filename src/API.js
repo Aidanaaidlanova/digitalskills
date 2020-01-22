@@ -1,13 +1,11 @@
 import Axios from "axios";
 
 if (window.location.pathname === "/admin") {
-  setTimeout(() => (window.location.href = "/admin/"), 0);
-  // localStorage.removeItem('NotFound');
+  window.location.href = "/admin/";
 }
 
-const http = Axios.create({ baseURL: "https://digiskills.kg/"});
+const http = Axios.create({ baseURL: "https://digiskills.kg/" });
 let lang = localStorage.getItem("language");
-lang = lang ? lang : "ru";
 
 export default {
   getAllLessons: (page, count) =>
@@ -31,6 +29,6 @@ export default {
 
   getLesson: id => http.get(`api/course/programs/?course_id=${id}`),
   getDataAboutUs: () =>
-    http.get(`https://digiskills.kg/api/aboutus/?lang=${lang}`),
+    http.get(`api/aboutus/?lang=${lang}`),
   postData: (url, data) => http.post(url, data)
 };

@@ -17,7 +17,6 @@ class Course extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount at course.js");
     API.getCourse(this.props.match.params.id)
       .then(res => {
         this.setState({
@@ -25,7 +24,6 @@ class Course extends React.Component {
         });
         API.getTeacherData(this.state.lesson.teacher_id)
           .then(res => {
-            console.log("GET query");
             this.setState({
               teacher: res.data
             });
@@ -81,7 +79,7 @@ class Course extends React.Component {
                       Открыть курс
                     </Link>
                   </div>
-                  {this.state.lesson.isOnline == true ? (
+                  {this.state.lesson.isOnline ? (
                     <div className={"col-md  my-2"}>
                       <a
                         href={registration_link}
@@ -143,7 +141,7 @@ class Course extends React.Component {
                 "row justify-content-around align-items-center teacher-info"
               }
             >
-              <Col md={3} className={""}>
+              <Col md={3}>
                 <img
                   src={this.state.teacher.image}
                   className={"img-fluid rounded-pill"}
