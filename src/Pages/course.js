@@ -31,13 +31,11 @@ class Course extends React.Component {
             });
           })
           .catch(e => console.error(e));
-        
       })
       .then(() => {
         document.title = this.state.lesson.name;
       })
       .catch(e => console.error(e));
-      
   }
 
   render() {
@@ -110,12 +108,12 @@ class Course extends React.Component {
               </Col>
               {this.state.lesson.isOnline == true ? (
                 <Col className="col-md-auto col-4 mx-2 mt-5 mx-lg-5">
-                  <div className="block">
+                  <div className="block py-4 px-5">
                     <p className="details-course">Детали онлайн урока</p>
-                    <p className="DET">
+                    <p className="DET ">
                       Дата:{" "}
                       <span className="date_course">
-                      {" "}
+                        {" "}
                         {moment(start).format("Do MMMM YYYY")}
                       </span>
                     </p>
@@ -132,7 +130,7 @@ class Course extends React.Component {
                 ""
               )}
             </Row>
-            <div className="my-5">
+            <div className="mb-2 mt-5">
               <p className={"teacher text-lg-left text-center"}>
                 {" "}
                 Преподаватель{" "}
@@ -143,7 +141,7 @@ class Course extends React.Component {
                 "row justify-content-around align-items-center teacher-info"
               }
             >
-              <Col md={3} className={""}>
+              <Col md={3}>
                 <img
                   src={this.state.teacher.image}
                   className={"img-fluid rounded-pill"}
@@ -151,19 +149,17 @@ class Course extends React.Component {
                 />
               </Col>
               <Col className={"col-12 mt-2 col-lg-7 text-lg-left text-center"}>
-                <p className={"h2 teacher-title "}>
+                <p className={" teacher-title my-2 "}>
                   {this.state.teacher.name} {this.state.teacher.surname}
                 </p>
-                <p className={"teacher-subtitler "}>
+                <p className={"teacher-subtitler my-3 "}>
                   {this.state.teacher.position}
                 </p>
                 <p className={"course-about text-lg-left text-center"}>
                   {this.state.teacher.about}
                 </p>
-                <p className="course-about text-lg-left text-center">
-
+                <p className="course-about text-lg-left text-center my-3">
                   Язык препадования:{" "}
-
                   <b>
                     {this.state.teacher.language === "ru"
                       ? "Русский"
