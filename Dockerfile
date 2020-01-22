@@ -12,4 +12,3 @@ RUN npm install --silent
 RUN npm install react-scripts@3.0.1 -g --silent
 
 COPY . /opt/services/front
-RUN npm run build
