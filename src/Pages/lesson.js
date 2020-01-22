@@ -69,7 +69,13 @@ const Lesson = ({ match }) => {
             </div>
           </div>
           <div className="lesson-content-block col-md-12 col-lg-8 mx-lg-4  shadow  mb-5">
-            
+            {sortData.length > 0 ? (
+              <div className="mt-4" key={sortData[select].id}>
+                {ReactHtmlParser(sortData[select].content)}
+              </div>
+            ) : (
+                ""
+              )}
             {sortData.length > 0 ? (
               <div>
                 {select > 0 ? (
