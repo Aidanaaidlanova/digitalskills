@@ -11,7 +11,7 @@ const Example = () => {
       <Nav vertical>
         <Container>
           <Row className={"justify-content-between"}>
-            <Col md={3} className="margin">
+            <Col md={3} className="margin col-4">
               <NavItem>
                 <Link to={"/about"} className={"text-light"}>
                   <p className={"mb-1"}>О проекте</p>
@@ -33,32 +33,27 @@ const Example = () => {
                 </Link>
               </NavItem>
             </Col>
-            <Col md={3} className="margin2">
+            <Col md={3} className="margin2 col-4">
               <NavItem className={"mb-5"}>
                 <p className={"mb-1"}>
                   <img alt={"logo"} src={logo2} />
                 </p>
               </NavItem>
-              <NavItem>
-                <p className={"mb-0"} />
-              </NavItem>
-              <NavItem>
-                <p className={"mb-1"}>Разработано Neobis 2019</p>
-              </NavItem>
-              <NavItem>
-                <p className={"mb-1"}>Copyright © 2019 Neobis</p>
-              </NavItem>
             </Col>
-            <Col md={3} className="margin text-right">
+            <Col md={3} className="margin text-left text-md-right">
               <NavItem>
                 <p className={"mb-1"}>+996708453423 </p>
               </NavItem>
               <NavItem>
-                <p className={"mb-1"}>+996510212345</p>
+                <p className={"mb-md-1 mb-3"}>+996510212345</p>
               </NavItem>
               <NavItem>
                 <p className={"mb-1"}>digitalskills.kg@mail.ru </p>
               </NavItem>
+            </Col>
+            <Col md={12} className={"text-center footer-copyright mt-2 mt-md-1"}>
+              <p className={"mb-0"}>Разработано Neobis 2019</p>
+              <p className={"mb-3"}>Copyright © 2019 Neobis</p>
             </Col>
           </Row>
         </Container>
