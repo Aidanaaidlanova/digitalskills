@@ -36,7 +36,7 @@ const TeacherPage = ({ match }) => {
             </Col>
             <Col
               md={7}
-              className={"ml-md-5 d-flex flex-column justify-content-center"}
+              className={"ml-md-5 d-flex flex-column justify-content-center text-lg-left text-center"}
             >
               <p className={"h2 teacher-page my-2"}>
                 {name} {surname}
