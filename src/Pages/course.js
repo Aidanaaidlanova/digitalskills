@@ -17,9 +17,6 @@ const Course = props => {
   const [teacher, setTeacher] = useState({});
   const { t } = useTranslation();
 
-
-
-
   useEffect(() => {
     API.getCourse(props.match.params.id)
       .then(res => setLesson(res.data))
@@ -31,7 +28,7 @@ const Course = props => {
       .then(res => setTeacher(res.data))
       .catch(e => console.error(e));
     document.title = lesson.name;
-    console.log(lesson.teacher_id)
+    console.log(lesson.teacher_id);
   }, [lesson.teacher_id]);
 
   const {
@@ -42,8 +39,7 @@ const Course = props => {
     start,
     image,
     registration_link,
-    id,
-    
+    id
   } = lesson;
   return (
     <div className="wrapper">
