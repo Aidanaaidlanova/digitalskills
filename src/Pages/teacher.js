@@ -5,10 +5,13 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import API from "../API";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 
 const TeacherPage = ({ match }) => {
   const [data, setData] = useState([]);
   const [lessons, setLessons] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     API.getTeacherData(match.params.id)
@@ -44,7 +47,7 @@ const TeacherPage = ({ match }) => {
               <p className={"teacher-page teacher-subtitle my-3"}>{position}</p>
               <p className={"teacher-archive"}>{about}</p>
               <p className="my-3">
-                Язык преподования:{" "}
+                {t("teachinglanguage")}{" "}
                 <b>{language === "ru" ? "Русский" : "Кыргызский"}</b>
               </p>
             </Col>

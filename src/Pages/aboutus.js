@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState,useEffect } from "react";
 import { Col, Row, Container } from "reactstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -7,20 +7,23 @@ import HtmlParser from "react-html-parser";
 import "../styles/main.css";
 import map from "../assets/img/kg-07 1.png";
 import Spiner from "./../Components/spiner";
+import { useTranslation } from "react-i18next";
 
-class Aboutus extends Component {
-  state = {
-    data: {}
-  };
 
-  componentDidMount() {
+const Aboutus = () => {
+  const [data, setData] = useState({});
+  const { t } = useTranslation();
+
+
+ 
+  useEffect(() => {
     document.title = "О проекте";
     API.getDataAboutUs()
-      .then(res => this.setState({ data: res.data }))
+      .then(res => setData(res.data))
       .catch(e => console.error(e));
-  }
+  }, []);
 
-  render() {
+  
     return (
       <div className="wrapper">
         <Header />
@@ -29,14 +32,14 @@ class Aboutus extends Component {
             <Col className="col-lg-6 col-12 ">
               <p
                 className={
-                  "h1 text-uppercase head-text text-lg-left text-center mt-5"
+                  "h1 text-uppercase  text-lg-left text-center mt-5 mb-3"
                 }
               >
-                О ПРОЕКТЕ
+                {t("aboutProject")}
               </p>
               <p className={"text-about px-4 px-lg-0 mb-lg-5 mb-1"}>
-                {this.state.data && this.state.data.payload ? (
-                  HtmlParser(this.state.data.payload)
+                {data && data.payload ? (
+                  HtmlParser(data.payload)
                 ) : (
                   <Spiner />
                 )}
@@ -51,5 +54,5 @@ class Aboutus extends Component {
       </div>
     );
   }
-}
+
 export default Aboutus;

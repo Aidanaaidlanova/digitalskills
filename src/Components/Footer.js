@@ -2,10 +2,14 @@ import React from "react";
 import { Nav, NavItem, Row, Col, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import logo2 from "../assets/icon/image 64.png";
+import { useTranslation } from "react-i18next";
+
 
 import "../styles/main.css";
 
 const Example = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="footer overflow-hidden">
       <Nav vertical>
@@ -14,22 +18,22 @@ const Example = () => {
             <Col md={3} className="margin col-4">
               <NavItem>
                 <Link to={"/about"} className={"text-light"}>
-                  <p className={"mb-1"}>О проекте</p>
+                  <p className={"mb-1"}>{t("aboutProject")}</p>
                 </Link>
               </NavItem>
               <NavItem>
                 <Link to={"/all-news"} className={"text-light"}>
-                  <p className={"mb-1"}>Новости</p>
+                  <p className={"mb-1"}>{t("news")}</p>
                 </Link>
               </NavItem>
               <NavItem>
                 <Link to={"/lessons"} className={"text-light"}>
-                  <p className={"mb-1"}>Курсы</p>
+                  <p className={"mb-1"}>{t("lessons")}</p>
                 </Link>
               </NavItem>
               <NavItem>
                 <Link to={"/contacts"} className={"text-light"}>
-                  <p className={"mb-1"}>Контакты</p>
+                  <p className={"mb-1"}>{t("contact")}</p>
                 </Link>
               </NavItem>
             </Col>
@@ -52,7 +56,7 @@ const Example = () => {
               </NavItem>
             </Col>
             <Col md={12} className={"text-center footer-copyright mt-2 mt-md-1"}>
-              <p className={"mb-0"}>Разработано Neobis 2019</p>
+              <p className={"mb-0"}>{t("neobis")} 2020</p>
               <p className={"mb-3"}>Copyright © 2019 Neobis</p>
             </Col>
           </Row>
