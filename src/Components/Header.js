@@ -69,22 +69,22 @@ const Example = () => {
           <Nav navbar className={"w-100 d-flex justify-content-center"}>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to={"/about"}>О проекте</Link>
+                <Link to={"/about"}>{t("aboutProject")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item ">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/lessons">{t("Lessons")}</Link>
+                <Link to="/lessons">{t("lessons")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/all-news">Новости</Link>
+                <Link to="/all-news">{t("news")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/contacts">Контакты</Link>
+                <Link to="/contacts">{t("contact")}</Link>
               </NavLink>
             </NavItem>
           </Nav>
@@ -108,7 +108,6 @@ const Example = () => {
           >
             Кырг
           </Button>
-          
         </div>
       </Container>
     </Navbar>

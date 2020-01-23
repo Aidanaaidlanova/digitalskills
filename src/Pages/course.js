@@ -9,12 +9,15 @@ import API from "../API";
 import "../styles/course.css";
 import "../styles/main.css";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 
 class Course extends React.Component {
   state = {
     lesson: {},
     teacher: {}
   };
+  
 
   componentDidMount() {
     API.getCourse(this.props.match.params.id)
@@ -37,6 +40,7 @@ class Course extends React.Component {
   }
 
   render() {
+    
     const {
       name,
       category_name,

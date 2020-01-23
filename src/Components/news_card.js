@@ -4,9 +4,13 @@ import moment from "moment";
 import "moment/locale/ru";
 import "../styles/components_style.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 const News_card = ({ title, image, views, pub_date, id }) => {
   const [filterTitle, setFilterTitle] = useState("");
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     if (title.length > 40) setFilterTitle(title.substring(0, 40));
@@ -36,7 +40,7 @@ const News_card = ({ title, image, views, pub_date, id }) => {
             >
              <CardTitle className="news_title text-dark mb-0">{filterTitle}</CardTitle>
             <CardText className={"d-flex justify-content-between align-items-center mt-4"}>
-              <small className="text-muted">{views} просмотров</small>
+              <small className="text-muted">{views} {t("views")}</small>
               <small className="ml-2">
                 <p className="text-muted">{moment(pub_date).format("Do MMMM YYYY")}</p>
               </small>

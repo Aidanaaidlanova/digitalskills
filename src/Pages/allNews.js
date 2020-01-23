@@ -8,11 +8,15 @@ import Spiner from "../Components/spiner";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import "../styles/news.css";
+import { useTranslation } from "react-i18next";
+
 
 const AllNews = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const count = 5;
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     document.title = "Все новости";
@@ -54,7 +58,7 @@ const AllNews = () => {
               "h1 text-uppercase text-lg-left mx-2 text-center mt-5 mb-4 w-100"
             }
           >
-            новости
+            {t("news")}
           </p>
           <div className="col-12">
             {data && data.data ? (
@@ -67,7 +71,7 @@ const AllNews = () => {
                   style={{ minHeight: "312px" }}
                 >
                   <Row>
-                    <Col className={"px-0 col-12 col-lg-6"}>
+                    <Col className={"px-0 col-12 col-lg-6"} >
                       <img
                         className={"img-fluid w-100  rounded"}
                         src={data.data[0].image}
@@ -85,7 +89,7 @@ const AllNews = () => {
 
                       <div className="w-100 d-flex justify-content-between mt-4">
                         <p className="text-muted main-news-views">
-                          {data.data[0].views} просмотров
+                          {data.data[0].views} {t("views")}
                       </p>
                         <p className="mb-0 text-dark main-news-date text-muted">
                           {moment(data.data[0].pub_date).format("Do MMMM YYYY")}

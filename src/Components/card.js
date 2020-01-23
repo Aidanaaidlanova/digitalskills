@@ -9,8 +9,12 @@ import {
   Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 const CardItem = ({ name, image, id, language, category_name }) => {
+  const { t} = useTranslation();
+
   return (
     <Card
       className={"border-0 shadow mb-3 position-relative"}
@@ -21,9 +25,11 @@ const CardItem = ({ name, image, id, language, category_name }) => {
         <CardTitle className={"card_custom_title mb-4"}>{name}</CardTitle>
         <CardSubtitle className={"d-flex justify-content-between w-100"}>
           <span className={"text-muted card_custom_subtitle-text"}>
-            Категория
+            {t("category")}
           </span>
-          <span className={"text-muted card_custom_subtitle-text"}>Язык</span>
+          <span className={"text-muted card_custom_subtitle-text"}>
+            {t("language")}
+          </span>
         </CardSubtitle>
         <CardText className={"mt-0 mb-5"}>
           <span
@@ -38,7 +44,6 @@ const CardItem = ({ name, image, id, language, category_name }) => {
         <p
           className={"w-100 d-flex justify-content-center main-card-button-pos"}
         >
-          
           <Link
             to={`/course/${id}`}
             className={"mx-auto d-inline-block mb-3 text-decoration-none"}
@@ -50,7 +55,7 @@ const CardItem = ({ name, image, id, language, category_name }) => {
                 "card_custom_button rounded-0 btn btn-faded d-flex justify-content-center align-items-center"
               }
             >
-              <b>Подробнее</b>
+              <b>{t("moreDetails")}</b>
             </Button>
           </Link>
         </p>
