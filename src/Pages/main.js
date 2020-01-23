@@ -14,7 +14,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Spiner from "../Components/spiner";
 
+
 class Main extends React.Component {
+  
   state = {
     lessons: {},
     news: {},
@@ -40,6 +42,7 @@ class Main extends React.Component {
   }
 
   render() {
+
     return (
       <div className={"w-100 overflow-hidden"}>
         <Header />

@@ -79,11 +79,12 @@
 	text-align: justify;
 }
 .details-course{
+
 	font-family: Muller;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 22px;
-	color: #2D5199;
+  color: #2D5199;
 }
 .DET{
 	font-family: Muller;
@@ -91,6 +92,7 @@
 	font-weight: 500;
 	font-size: 18px;
 	color: #ABABAB;
+
 }
 .date_course{
 	color: #2D5199;
@@ -130,7 +132,6 @@ color: #2D5199;
 .teacher-page-btn{
 height: 50px;
 width: 280px;
-
 background-color: #2D5199;
 border:none;
 font-family: Muller;

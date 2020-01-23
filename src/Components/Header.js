@@ -13,8 +13,11 @@ import {
 import "../styles/main.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/icon/image 54.png";
+import { useTranslation } from 'react-i18next';
+
 
 const Example = () => {
+  const { t, i18n} = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [lang,setLang] = useState(localStorage.getItem('language'));
   const toggle = () => setIsOpen(!isOpen);
@@ -27,7 +30,9 @@ const Example = () => {
     localStorage.setItem('language',language);
     setLang(language);
     window.location.reload(true);
+    i18n.changeLanguage(language);
   };
+  
 
   return (
     <Navbar className="header" light expand="md">
@@ -39,14 +44,22 @@ const Example = () => {
         </NavbarBrand>
 
         <div className={"d-block d-md-none"}>
-          <Button color={"faded"}
-                  className={`header-button shadow-none ${lang === 'ru' ? '' : 'text-muted'}`}
-                  onClick={() => handleChange('ru')}>
+          <Button
+            color={"faded"}
+            className={`header-button shadow-none ${
+              lang === "ru" ? "" : "text-muted"
+            }`}
+            onClick={() => handleChange("ru")}
+          >
             Рус
           </Button>
-          <Button color={"faded"}
-                  className={`header-button shadow-none ${lang === 'kg' ? '' : 'text-muted'}`}
-                  onClick={() => handleChange('kg')}>
+          <Button
+            color={"faded"}
+            className={`header-button shadow-none ${
+              lang === "kg" ? "" : "text-muted"
+            }`}
+            onClick={() => handleChange("kg")}
+          >
             Кырг
           </Button>
         </div>
@@ -56,35 +69,43 @@ const Example = () => {
           <Nav navbar className={"w-100 d-flex justify-content-center"}>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to={"/about"}>О проекте</Link>
+                <Link to={"/about"}>{t("aboutProject")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item ">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/lessons">Уроки</Link>
+                <Link to="/lessons">{t("lessons")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/all-news">Новости</Link>
+                <Link to="/all-news">{t("news")}</Link>
               </NavLink>
             </NavItem>
             <NavItem className="item">
               <NavLink tag={"p"} className={"mb-0"}>
-                <Link to="/contacts">Контакты</Link>
+                <Link to="/contacts">{t("contact")}</Link>
               </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
         <div className={"d-none d-md-block"}>
-          <Button color={"faded"}
-                  className={`header-button shadow-none ${lang === 'ru' ? '' : 'text-muted'}`}
-                  onClick={() => handleChange('ru')}>
+          <Button
+            color={"faded"}
+            className={`header-button shadow-none ${
+              lang === "ru" ? "" : "text-muted"
+            }`}
+            onClick={() => handleChange("ru")}
+          >
             Рус
           </Button>
-          <Button color={"faded"}
-                  className={`header-button shadow-none ${lang === 'kg' ? '' : 'text-muted'}`}
-                  onClick={() => handleChange('kg')}>
+          <Button
+            color={"faded"}
+            className={`header-button shadow-none ${
+              lang === "kg" ? "" : "text-muted"
+            }`}
+            onClick={() => handleChange("kg")}
+          >
             Кырг
           </Button>
         </div>

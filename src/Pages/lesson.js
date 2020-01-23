@@ -5,10 +5,14 @@ import LessonSidebar from "../Components/lesson_sidebar";
 import LessonHeader from "../Components/lesson_header";
 import { Link } from "react-router-dom";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 const Lesson = ({ match }) => {
   const [data, setData] = useState({});
   const [sortData, setSortData] = useState({});
   const [select, setSelect] = useState(0);
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     API.getLesson(match.params.id)
@@ -83,7 +87,7 @@ const Lesson = ({ match }) => {
                     className="lesson-prev-btn"
                     onClick={() => prevBtnClicked()}
                   >
-                    Назад
+                    {t("prev")}
                   </button>
                 ) : (
                   ""
@@ -93,12 +97,12 @@ const Lesson = ({ match }) => {
                     className=" lesson-next-btn"
                     onClick={() => nextBtnClicked()}
                   >
-                    Вперед
+                    {t("next")}
                   </button>
                 ) : (
                   <Link to="/lessons">
                     <button className=" lesson-next-btn bg-success">
-                      Завершить
+                        {t("finish")}
                     </button>
                   </Link>
                 )}

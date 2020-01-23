@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
-import img from "../assets/img/Full-of-ideas-Young-female-graphic-designer-Stock-Photo1 2.png";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import HtmlParser from "react-html-parser";
 import API from "../API";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 
 const News = ({ match }) => {
   const [data, setData] = useState([]);
+  const { t} = useTranslation();
 
   useEffect(() => {
     API.getOneNews(match.params.id, "ru")
@@ -28,7 +30,10 @@ const News = ({ match }) => {
                 <p className={"h1"}>{data.title}</p>
                 <div className={"w-100 d-flex justify-content-between"}>
                   <b>1 декабря 2019</b>
-                  <p className={"text-muted"}>{data.views} просмотров</p>
+                  <p className={"text-muted"}>
+                    {data.views}
+                    {t("views")}
+                  </p>
                 </div>
               </Col>
               <Col md={8}>

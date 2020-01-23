@@ -9,12 +9,15 @@ import API from "../API";
 import "../styles/course.css";
 import "../styles/main.css";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 
 class Course extends React.Component {
   state = {
     lesson: {},
     teacher: {}
   };
+  
 
   componentDidMount() {
     API.getCourse(this.props.match.params.id)
@@ -29,16 +32,15 @@ class Course extends React.Component {
             });
           })
           .catch(e => console.error(e));
-        
       })
       .then(() => {
         document.title = this.state.lesson.name;
       })
       .catch(e => console.error(e));
-      
   }
 
   render() {
+    
     const {
       name,
       category_name,
@@ -110,10 +112,10 @@ class Course extends React.Component {
                 <Col className="col-md-auto col-4 mx-2 mt-5 mx-lg-5">
                   <div className="block py-4 px-5">
                     <p className="details-course">Детали онлайн урока</p>
-                    <p className="DET">
+                    <p className="DET ">
                       Дата:{" "}
                       <span className="date_course">
-                      {" "}
+                        {" "}
                         {moment(start).format("Do MMMM YYYY")}
                       </span>
                     </p>
@@ -130,6 +132,7 @@ class Course extends React.Component {
                 ""
               )}
             </Row>
+
             <div className="mt-5 mb-2">
               <p className={"teacher text-lg-left text-center"}>
                 {" "}
@@ -149,6 +152,7 @@ class Course extends React.Component {
                 />
               </Col>
               <Col className={"col-12 mt-2 col-lg-7 text-lg-left text-center"}>
+
                 <p className={"teacher-title my-2 "}>
                   {this.state.teacher.name} {this.state.teacher.surname}
                 </p>
@@ -161,7 +165,6 @@ class Course extends React.Component {
                 <p className="course-about text-lg-left text-center my-3">
 
                   Язык препадования:{" "}
-
                   <b>
                     {this.state.teacher.language === "ru"
                       ? "Русский"

@@ -17,8 +17,12 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Swal from "sweetalert2";
 import API from "./../API";
+import { useTranslation } from "react-i18next";
+
 
 const ContactBodyItem = ({ image, body, className }) => {
+  const { t } = useTranslation();
+
   return (
     <Media className={className}>
       <Media
@@ -53,7 +57,7 @@ const Contacts = () => {
             height: 500,
             showConfirmButton: true,
             icon: "success",
-            title: "Ваша заявка успешно отправлена!",
+            title: `${t("succesRequest")}`,
             timer: 2000,
             confirmButtonColor: "#32B482"
           });
@@ -78,6 +82,7 @@ const Contacts = () => {
         });
       });
   };
+  const { t } = useTranslation();
 
   return (
     <div className="wrapper">
@@ -85,30 +90,25 @@ const Contacts = () => {
       <Container>
         <Row>
           <Col md={12} className={"mt-5"}>
-            <p className={"h1 text-uppercase"}>контакты</p>
+            <p className={"h1 text-uppercase"}>{t("contact")}</p>
           </Col>
           <Col md={5}>
             <b className={"mt-4 d-inline-block contacts-subtitle mb-3"}>
-              Пишите нам, если
+              {t("writeUs")}
             </b>
-            <ContactBodyItem
-              image={settingImage}
-              body={
-                "У вас есть вопросы по использованию возможностей нашего проекта"
-              }
-            />
+            <ContactBodyItem image={settingImage} body={t("questions")} />
             <ContactBodyItem
               image={askImage}
-              body={"Нужна помощь с регистрацией"}
+              body={t("registrationHelp")}
               className={"mt-3"}
             />
             <ContactBodyItem
               image={lampImage}
-              body={"У вас есть идеи по улучшению нашего проекта"}
+              body={t("ideasForImprovement")}
               className={"mt-3 dots-father"}
             />
             <b className={"mt-5 d-inline-block contacts-subtitle mb-3"}>
-              Звоните
+              {t("call")}
             </b>
             <Media>
               <Media
@@ -132,15 +132,19 @@ const Contacts = () => {
               onSubmit={postData}
             >
               <FormGroup>
-                <p className={"text-center w-75 mx-auto contacts-subtitle"}>
-                  МЫ ОТКРЫТЫ К ОБЩЕНИЮ И ГОТОВЫ ОТВЕТИТЬ НА ВСЕ ВАШИ ВОПРОСЫ
+                <p
+                  className={
+                    "text-center w-75 mx-auto contacts-subtitle text-uppercase"
+                  }
+                >
+                  {t("openForCommunication")}
                 </p>
               </FormGroup>
               <FormGroup>
                 <Input
                   type="text"
                   name="name"
-                  placeholder="Имя"
+                  placeholder={t("name")}
                   required
                   className={
                     "border-top-0 border-left-0 border-right-0 rounded-0 bg-faded shadow-none contacts-form__input mb-4"
@@ -163,7 +167,7 @@ const Contacts = () => {
                 <Input
                   type={"textarea"}
                   name="text"
-                  placeholder="Ваш вопрос"
+                  placeholder={t("yourQuestion")}
                   required
                   className={
                     "border-top-0 border-left-0 border-right-0 rounded-0 bg-faded shadow-none contacts-form__input contacts-form__textarea mb-4"
@@ -177,7 +181,7 @@ const Contacts = () => {
                   }
                   color={"faded"}
                 >
-                  Отправить
+                  {t("send")}
                 </Button>
               </div>
             </Form>

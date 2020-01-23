@@ -14,6 +14,8 @@ import {
 import Card from "../Components/card";
 import API from "../API";
 import Spiner from "../Components/spiner";
+import { useTranslation } from "react-i18next";
+
 
 const AllLessons = () => {
   const [page, setPage] = useState(0);
@@ -22,6 +24,8 @@ const AllLessons = () => {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
+  const { t } = useTranslation();
+
   const count = 3;
   useEffect(() => {
     document.title = "Все курсы";
@@ -85,7 +89,7 @@ const AllLessons = () => {
               "d-flex justify-content-lg-between align-items-center my-5 flex-wrap justify-content-center"
             }
           >
-            <p className={"h1 text-uppercase"}>Все уроки</p>
+            <p className={"h1 text-uppercase"}>{t("allLessons")}</p>
 
             <div className={"d-inline-block"} style={{ minWidth: "220px" }}>
               <UncontrolledDropdown>
