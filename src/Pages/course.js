@@ -9,7 +9,6 @@ import API from "../API";
 import "../styles/course.css";
 import "../styles/main.css";
 import Spiner from "../Components/spiner";
-import { useTranslation } from "react-i18next";
 
 
 class Course extends React.Component {
@@ -108,7 +107,7 @@ class Course extends React.Component {
                 </h5>
                 <p className="course-about mt-4 text-left  ">{description}</p>
               </Col>
-              {this.state.lesson.isOnline == true ? (
+              {this.state.lesson.isOnline ? (
                 <Col className="col-md-auto col-4 mx-2 mt-5 mx-lg-5">
                   <div className="block py-4 px-5">
                     <p className="details-course">Детали онлайн урока</p>
