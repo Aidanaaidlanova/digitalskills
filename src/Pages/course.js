@@ -9,7 +9,7 @@ import API from "../API";
 import "../styles/course.css";
 import "../styles/main.css";
 import Spiner from "../Components/spiner";
-import { useTranslation } from "react-i18next";
+
 
 
 class Course extends React.Component {
