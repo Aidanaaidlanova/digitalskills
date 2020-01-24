@@ -59,7 +59,7 @@ const Contacts = () => {
             icon: "success",
             title: `${t("succesRequest")}`,
             timer: 2000,
-            confirmButtonColor: "#32B482"
+            confirmButtonColor: "#2D5199"
           });
           target.reset();
         } else {

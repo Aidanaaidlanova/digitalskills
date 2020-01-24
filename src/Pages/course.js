@@ -27,8 +27,7 @@ const Course = props => {
     API.getTeacherData(lesson.teacher_id)
       .then(res => setTeacher(res.data))
       .catch(e => console.error(e));
-    document.title = lesson.name;
-    console.log(lesson.teacher_id);
+    document.title = lesson.name !== undefined ? lesson.name :"Digital Skills" ;
   }, [lesson.teacher_id]);
 
   const {

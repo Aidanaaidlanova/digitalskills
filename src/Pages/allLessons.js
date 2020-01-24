@@ -18,13 +18,13 @@ import { useTranslation } from "react-i18next";
 
 
 const AllLessons = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(0);
-  const [choice, setChoice] = useState("Все");
+  const [choice, setChoice] = useState(`${t("all")}`);
   const [choiceID, setChoiceID] = useState(0);
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
-  const { t } = useTranslation();
 
   const count = 3;
   useEffect(() => {
@@ -108,7 +108,6 @@ const AllLessons = () => {
                     onClick={e => setChoice(e.target.innerText)}
                     className={"dropdown-item-custom"}
                   >
-                    Все
                   </DropdownItem>
                   {category &&
                     category.map((item, idx) => {
@@ -144,7 +143,7 @@ const AllLessons = () => {
                   );
                 })
               ) : (
-                "Нету курсов"
+                ""
               )
             ) : (
               <Spiner />

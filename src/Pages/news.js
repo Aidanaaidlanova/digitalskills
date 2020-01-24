@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import HtmlParser from "react-html-parser";
 import API from "../API";
 import Spiner from "../Components/spiner";
+import moment from "moment";
 import { useTranslation } from "react-i18next";
 
 
@@ -26,12 +27,15 @@ const News = ({ match }) => {
         <Row className={"d-flex justify-content-center mt-5"}>
           {data && data.id ? (
             <>
-              <Col md={8}>
+              <Col md={8} >
                 <p className={"h1"}>{data.title}</p>
-                <div className={"w-100 d-flex justify-content-between"}>
-                  <b>1 декабря 2019</b>
+                <div className={"w-100 d-flex justify-content-between my-3"}>
+                  <b>
+                    {moment(data.pub_date).format("Do MMMM YYYY")}
+
+                  </b>
                   <p className={"text-muted"}>
-                    {data.views}
+                    {data.views}{" "}
                     {t("views")}
                   </p>
                 </div>
@@ -49,7 +53,7 @@ const News = ({ match }) => {
                   className={"news_custom-link mt-5 mb-5 d-inline-block"}
                   to={"/all-news"}
                 >
-                  Вернуться назад
+                  {t("comeBack")}
                 </Link>
               </Col>
             </>

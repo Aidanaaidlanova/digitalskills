@@ -5,6 +5,9 @@ p {
 .news-content div{
 	width: 100% !important;
 }
+.news-main-img{
+  min-width: 320px;
+}
 
 .news_title
 {font-family: Muller;
@@ -23,5 +26,7 @@ line-height: 22px;
   .main-news-views ,.main-news-date{
     font-size: 13px;
   }
- 
+ .news-main-img{
+  min-width:0;
+}
 }

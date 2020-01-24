@@ -71,9 +71,12 @@ const AllNews = () => {
                   style={{ minHeight: "312px" }}
                 >
                   <Row>
-                    <Col className={"px-0 col-12 col-lg-6"} >
+                    <Col
+                      className={"px-0 col-12 col-lg-6"}
+                    >
                       <img
-                        className={"img-fluid w-100  rounded"}
+                        className={"img-fluid news-main-img  rounded"}
+
                         src={data.data[0].image}
                         alt="img"
                       />
@@ -90,7 +93,7 @@ const AllNews = () => {
                       <div className="w-100 d-flex justify-content-between mt-4">
                         <p className="text-muted main-news-views">
                           {data.data[0].views} {t("views")}
-                      </p>
+                        </p>
                         <p className="mb-0 text-dark main-news-date text-muted">
                           {moment(data.data[0].pub_date).format("Do MMMM YYYY")}
                         </p>
@@ -100,9 +103,8 @@ const AllNews = () => {
                 </div>
               </Link>
             ) : (
-                ""
-              )}
-          
+              ""
+            )}
           </div>
           {data && data.data && data.data.length ? (
             data.data.map((item, idx) =>
