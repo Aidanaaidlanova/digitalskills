@@ -57,7 +57,7 @@ const Example = () => {
             </Col>
             <Col md={12} className={"text-center footer-copyright mt-2 mt-md-1"}>
               <p className={"mb-0"}>{t("neobis")} 2020</p>
-              <p className={"mb-3"}>Copyright © 2019 Neobis</p>
+              <p className={"mb-3"}>Copyright © 2020 Neobis</p>
             </Col>
           </Row>
         </Container>
