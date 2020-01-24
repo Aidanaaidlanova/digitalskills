@@ -17,18 +17,25 @@ const Course = props => {
   const [teacher, setTeacher] = useState({});
   const { t } = useTranslation();
 
-  useEffect(() => {
-    API.getCourse(props.match.params.id)
-      .then(res => setLesson(res.data))
-      .catch(e => console.error(e));
-  }, []);
-
-  useEffect(() => {
-    API.getTeacherData(lesson.teacher_id)
+  const getTeacher = (teacher_id) => {
+    API.getTeacherData(teacher_id)
       .then(res => setTeacher(res.data))
       .catch(e => console.error(e));
     document.title = lesson.name !== undefined ? lesson.name :"Digital Skills" ;
-  }, [lesson.teacher_id]);
+  };
+
+  useEffect(() => {
+    API.getCourse(props.match.params.id)
+      .then(res => {
+        setLesson(res.data);
+        getTeacher(res.data.teacher_id)
+      })
+      .catch(e => console.error(e));
+  }, []);
+
+  // useEffect(() => {
+  //
+  // }, [lesson.teacher_id]);
 
   const {
     name,
