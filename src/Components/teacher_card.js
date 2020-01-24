@@ -40,7 +40,7 @@ const TeacherCard = ({id,image,name,surname,position,language,about}) => {
             {about}
           </CardText>
           <p>
-            Язык преподования:{" "}
+            {t("teachinglanguage")}:{" "}
             <b>{language === "ru" ? "Русский" : "Кыргызский"}</b>
           </p>
           <div
