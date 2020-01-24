@@ -53,20 +53,20 @@ import Spiner from "../Components/spiner";
                   className={"mb-2 mb-md-5 main-page-heading-img-logo"}
                 />
                 <p className={"text-light h1 main-page-heading-title"}>
-                  {t("title")}
+                  {t("digitalTitle")}
                 </p>
                 <p
                   className={
                     "text-light mb-2 mb-md-4 main-page-heading-subtitle"
                   }
                 >
-                  {t("subtitle")}
+                  {t("digitalSubtitle")}
                 </p>
                 <Link
                   to={"/lessons"}
                   className="mainbutton d-flex justify-content-center align-items-center text-decoration-none"
                 >
-                  {t("underSubTitleButton")}
+                  {t("moreDetails")}
                 </Link>
               </Col>
             </Row>
@@ -140,7 +140,7 @@ import Spiner from "../Components/spiner";
         <div className="photo2 d-flex align-items-end mt-5">
           <Container>
             <p className={"h1 text-light mb-3 mb-sm-5 banner2"}>
-              {t("mainTagline")}
+              {t("digitalTitle")}
             </p>
           </Container>
         </div>
