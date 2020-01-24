@@ -17,7 +17,7 @@ const CardItem = ({ name, image, id, language, category_name }) => {
 
   return (
     <Card
-      className={"border-0 shadow mb-3 position-relative"}
+      className={"border-0 shadow mb-3 position-relative card__hover"}
       style={{ height: "450px" }}
     >
       <CardImg top width="100%" src={image} alt="Card image cap" />
