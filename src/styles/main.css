@@ -25,7 +25,6 @@
 	padding-bottom: 36px;
 }
 .mainheader{
-	font-family: Muller;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 48px;
@@ -37,7 +36,6 @@
 	padding-top: 12px;
 	padding-bottom: 36px;
 	width: 600px;
-	font-family: Muller;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 24px;
@@ -55,7 +53,7 @@
 	text-align: center;
 	outline: none;
 	text-decoration: none;
-	font-family: Muller;
+
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
@@ -80,7 +78,7 @@
 .headtext{
 padding-top: 107px;
 padding-bottom: 18px;
-font-family: Muller;
+
 font-style: bold;
 font-weight: bold;
 font-size: 36px;
@@ -95,7 +93,7 @@ color: #2D5199;
 	width: 200px;
 	height:50px;
 	background: #2D5199;
-	font-family: Muller;
+
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
@@ -133,7 +131,7 @@ p[style] {
 	margin-left: 285px;
 }
 .item{
-	font-family: Muller;
+
 	font-style: normal;
 	font-weight: 800;
 	font-size: 18px;
@@ -159,7 +157,7 @@ p[style] {
 
 .teacher-card-name {
 	font-size: 18px;
-	font-family: MullerBold;
+	font-family: 'PT Sans', sans-serif !important;
 }
 
 .teacher-card-who {
@@ -194,7 +192,7 @@ p[style] {
 }
 
 .main-page-heading-text {
-	font-family: MullerBold;
+	font-family: 'PT Sans', sans-serif !important;
 	color: #2D5199;
 }
 
