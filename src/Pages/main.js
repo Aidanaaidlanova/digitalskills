@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../styles/main.css";
@@ -15,33 +16,29 @@ import "slick-carousel/slick/slick-theme.css";
 import Spiner from "../Components/spiner";
 
 
-class Main extends React.Component {
-  
-  state = {
-    lessons: {},
-    news: {},
-    teachers: {}
-  };
 
-  componentDidMount() {
-    API.getAllLessons(0, 3)
-      .then(res =>
-        this.setState({
-          lessons: res.data
-        })
-      )
-      .catch(e => console.error(e));
 
-    API.allTeachers(0, 3)
-      .then(res =>
-        this.setState({
-          teachers: res.data
-        })
-      )
-      .catch(e => console.error(e));
-  }
+  const Main = () => {
 
-  render() {
+    const [lessons,setLessons] = useState([]);
+    const [teachers,setTeachers] = useState([]);
+
+
+    useEffect(() => {
+      API.getAllLessons(0, 3)
+        .then(res =>
+          setLessons(res.data)
+        )
+        .catch(e => console.error(e));
+
+      API.allTeachers(0, 3)
+        .then(res =>
+          setTeachers(res.data)
+        )
+        .catch(e => console.error(e));
+    },[]);
+
+    const { t } = useTranslation();
 
     return (
       <div className={"w-100 overflow-hidden"}>
@@ -56,24 +53,20 @@ class Main extends React.Component {
                   className={"mb-2 mb-md-5 main-page-heading-img-logo"}
                 />
                 <p className={"text-light h1 main-page-heading-title"}>
-                  ЦИФРОВОЙ Я - ЦИФРОВОЙ КЫРГЫЗСТАН{" "}
-                  <br className={"d-none d-sm-inline-block"} />
-                  СТАНЬ ЦИФРОВЫМ!
+                  {t("title")}
                 </p>
                 <p
                   className={
                     "text-light mb-2 mb-md-4 main-page-heading-subtitle"
                   }
                 >
-                  Digi Skills - это платформа для получения цифровых <br />
-                  навыках для всех регионов страны совершенно <br />
-                  бесплатно
+                  {t("subtitle")}
                 </p>
                 <Link
                   to={"/lessons"}
                   className="mainbutton d-flex justify-content-center align-items-center text-decoration-none"
                 >
-                  Смотреть все
+                  {t("underSubTitleButton")}
                 </Link>
               </Col>
             </Row>
@@ -92,13 +85,10 @@ class Main extends React.Component {
                 className={"d-flex justify-content-center flex-column"}
               >
                 <p className={"h2 main-page-heading-text d-none d-sm-block"}>
-                  Наша миссия
+                  {t("ourMission")}
                 </p>
                 <p className={"text-muted main-page-text"}>
-                  Предоставить возможность каждому кыргызстанцу приобрести
-                  минимальные цифровые навыки, а также определиться с
-                  профессиональной ориентацией в области информационных
-                  технологий
+                  {t("ourMisionText")}
                 </p>
               </Col>
             </Col>
@@ -111,7 +101,7 @@ class Main extends React.Component {
             >
               <Col md={10}>
                 <p className={"h2 main-page-heading-text d-sm-none"}>
-                  Наша миссия
+                  {t("ourMission")}
                 </p>
                 <img src={blockphoto} className={"img-fluid"} alt="" />
               </Col>
@@ -120,7 +110,7 @@ class Main extends React.Component {
             <Col md={6} className={"pl-0 mt-5 order-sm-3 order-3"}>
               <Col md={10}>
                 <p className={"h2 main-page-heading-text d-sm-none"}>
-                  Цель проекта
+                  {t("ourObjectiveTitle")}
                 </p>
                 <img src={blockphoto2} className={"img-fluid"} alt="" />
               </Col>
@@ -137,15 +127,10 @@ class Main extends React.Component {
                 className={"d-flex justify-content-center flex-column"}
               >
                 <p className={"h2 main-page-heading-text d-none d-sm-block"}>
-                  Цель проекта
+                  {t("ourObjectiveTitle")}
                 </p>
                 <p className={"text-muted main-page-text"}>
-                  Объединить все имеющиеся разработки государственного и
-                  частного сектора, а также донорских проектов по направлению
-                  «Цифровые навыки и компетенции» для удобства пользования
-                  гражданами. Граждане в свою очередь по технологии «единого
-                  окна» смогут на единой площадке получить требуемую информацию
-                  по интересующей теме в области информационных технологий.
+                  {t("ourObjectiveText")}
                 </p>
               </Col>
             </Col>
@@ -155,9 +140,7 @@ class Main extends React.Component {
         <div className="photo2 d-flex align-items-end mt-5">
           <Container>
             <p className={"h1 text-light mb-3 mb-sm-5 banner2"}>
-              ЦИФРОВОЙ Я - ЦИФРОВОЙ КЫРГЫЗСТАН
-              <br />
-              СТАНЬ ЦИФРОВЫМ!
+              {t("mainTagline")}
             </p>
           </Container>
         </div>
@@ -170,17 +153,17 @@ class Main extends React.Component {
                   "d-flex justify-content-center justify-content-lg-between align-items-center my-5 flex-wrap"
                 }
               >
-                <p className={"h1"}>Наши уроки</p>
+                <p className={"h1"}>{t("ourLessons")}</p>
 
                 <div className={"d-inline-block"}>
                   <Link to="/lessons">
-                    <button className="lessons_button">Все уроки</button>
+                    <button className="lessons_button">{t("allLessons")}</button>
                   </Link>
                 </div>
               </Col>
 
-              {this.state.lessons && this.state.lessons.data ? (
-                this.state.lessons.data.map((item, idx) => {
+              {lessons && lessons.data ? (
+                lessons.data.map((item, idx) => {
                   return (
                     <Col className={"mt-3"} sm={12} md={4} key={idx}>
                       <Card key={idx} {...item} />
@@ -201,18 +184,18 @@ class Main extends React.Component {
                   "d-flex  justify-content-center justify-content-lg-between my-5 flex-wrap"
                 }
               >
-                <p className={"h1"}>Преподаватели</p>
+                <p className={"h1"}>{t("teachers")}</p>
                 <div className={"d-inline-block"}>
                   <Link to="/all-teachers">
                     <button className="lessons_button">
-                      Все преподаватели
+                      {t("allTeachers")}
                     </button>
                   </Link>
                 </div>
               </Col>
 
-              {this.state.teachers && this.state.teachers.data ? (
-                this.state.teachers.data.map((item, idx) => {
+              {teachers && teachers.data ? (
+                teachers.data.map((item, idx) => {
                   return <TeacherCard {...item} key={idx} />;
                 })
               ) : (
@@ -224,6 +207,5 @@ class Main extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
 export default Main;
