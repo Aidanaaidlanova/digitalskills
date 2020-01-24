@@ -14,7 +14,7 @@ const TeacherCard = ({id,image,name,surname,position,language,about}) => {
 
   return (
     <Col md={4} className="mb-3">
-      <Card className={"border-0 shadow mb-3"} style={{ height: "500px" }}>
+      <Card className={"border-0 shadow mb-3 card__hover"} style={{height: "500px"}}>
         <Media
           className={
             "d-flex align-items-center justify-content-center pr-3 pl-3 pt-3 pb-0"
