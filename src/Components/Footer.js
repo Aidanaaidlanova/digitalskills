@@ -10,7 +10,7 @@ import "../styles/main.css";
 
 const Footer = () => {
   const { t } = useTranslation();
-  const [contact,setContact] = useState([])
+  const [contact,setContact] = useState([]);
 
   useEffect(() => {
     API.getContact()
@@ -55,7 +55,10 @@ const Footer = () => {
             <Col md={3} className="margin text-left text-md-right">
               {contact.length > 0 ? contact.map(item => (
                 <NavItem key={item.id}>
-                  <p className={"mb-1"}>{item.value}</p>
+                  <a className={"mb-1 text-light"}
+                     href={item.type === "phone" ? `tel:${item.value}` : `mailto:${item.value}`}>
+                    {item.value}
+                  </a>
                 </NavItem>
               )) : ""}
              
