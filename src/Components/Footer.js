@@ -1,14 +1,22 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Nav, NavItem, Row, Col, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import logo2 from "../assets/icon/image 64.png";
 import { useTranslation } from "react-i18next";
+import API from "../API"
 
 
 import "../styles/main.css";
 
 const Example = () => {
   const { t } = useTranslation();
+  const [contact,setContact] = useState([])
+
+  useEffect(() => {
+    API.getContact()
+      .then(res => setContact(res.data))
+      .catch(e => console.error(e))
+  }, []);
 
   return (
     <div className="footer overflow-hidden">
@@ -45,15 +53,13 @@ const Example = () => {
               </NavItem>
             </Col>
             <Col md={3} className="margin text-left text-md-right">
-              <NavItem>
-                <p className={"mb-1"}>+996708453423 </p>
-              </NavItem>
-              <NavItem>
-                <p className={"mb-md-1 mb-3"}>+996510212345</p>
-              </NavItem>
-              <NavItem>
-                <p className={"mb-1"}>digitalskills.kg@mail.ru </p>
-              </NavItem>
+              {contact.length > 0 ? contact.map(item => (
+                <NavItem>
+                  <p className={"mb-1"}>{item.value}</p>
+                </NavItem>
+              )) : ""}
+             
+             
             </Col>
             <Col md={12} className={"text-center footer-copyright mt-2 mt-md-1"}>
               <p className={"mb-0"}>{t("neobis")} 2020</p>

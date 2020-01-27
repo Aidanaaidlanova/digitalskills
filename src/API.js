@@ -28,7 +28,7 @@ export default {
     ),
 
   getLesson: id => http.get(`api/course/programs/?course_id=${id}`),
-  getDataAboutUs: () =>
-    http.get(`api/aboutus/?lang=${lang}`),
+  getDataAboutUs: () => http.get(`api/aboutus/?lang=${lang}`),
+  getContact: () => http.get(`api/contacts`),
   postData: (url, data) => http.post(url, data)
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import {
   Container,
   Row,
@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 
 
 const ContactBodyItem = ({ image, body, className }) => {
-  const { t } = useTranslation();
+ 
 
   return (
     <Media className={className}>
@@ -83,6 +83,14 @@ const Contacts = () => {
       });
   };
   const { t } = useTranslation();
+  const [contact, setContact] = useState({})
+
+  useEffect(() => {
+    API.getContact()
+      .then(res => setContact(res.data))
+      .catch(e => console.error(e))
+  }, []);
+
 
   return (
     <div className="wrapper">
@@ -118,13 +126,30 @@ const Contacts = () => {
                 className={"mr-3 mt-auto mb-auto"}
               />
               <Media body className={"mt-auto mb-auto"}>
-                <p className={"mb-1"}>+996708453423</p>
-                <p className={"mb-0"}>+996510212345</p>
+                {contact.length > 0
+                  ? contact.map(item =>
+                      item.type === "phone" ? (
+                        <p className={"mb-1"}>{item.value}</p>
+                      ) : (
+                        ""
+                      )
+                    )
+                  : ""}
               </Media>
             </Media>
-            <p className={"mt-4 mb-4"}>
-              <b>Digitalskills.kg@mail.ru</b>
-            </p>
+           
+               <div className="my-4">
+              {contact.length > 0
+                ? contact.map(item =>
+                  item.type === "email" ? (
+                    <b> <p className="my-1" >{item.value}</p></b>
+                  ) : (
+                      ""
+                    )
+                )
+                : ""}
+               </div>
+             
           </Col>
           <Col md={7} className={"d-flex justify-content-center"}>
             <Form
