@@ -8,7 +8,7 @@ import API from "../API"
 
 import "../styles/main.css";
 
-const Example = () => {
+const Footer = () => {
   const { t } = useTranslation();
   const [contact,setContact] = useState([])
 
@@ -54,7 +54,7 @@ const Example = () => {
             </Col>
             <Col md={3} className="margin text-left text-md-right">
               {contact.length > 0 ? contact.map(item => (
-                <NavItem>
+                <NavItem key={item.id}>
                   <p className={"mb-1"}>{item.value}</p>
                 </NavItem>
               )) : ""}
@@ -72,4 +72,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Footer;

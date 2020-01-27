@@ -129,7 +129,7 @@ const Contacts = () => {
                 {contact.length > 0
                   ? contact.map(item =>
                       item.type === "phone" ? (
-                        <p className={"mb-1"}>{item.value}</p>
+                        <p key={item.id} className={"mb-1"}>{item.value}</p>
                       ) : (
                         ""
                       )
@@ -142,7 +142,7 @@ const Contacts = () => {
               {contact.length > 0
                 ? contact.map(item =>
                   item.type === "email" ? (
-                    <b> <p className="my-1" >{item.value}</p></b>
+                    <b> <p key={item.id} className="my-1" >{item.value}</p></b>
                   ) : (
                       ""
                     )

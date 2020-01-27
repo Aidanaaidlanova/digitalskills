@@ -67,6 +67,7 @@ const Lesson = ({ match }) => {
                       setSelect={setSelect}
                       select={select}
                       index={index}
+                      key={data.id}
                     />
                   ))
                 : ""}
