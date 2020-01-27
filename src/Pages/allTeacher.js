@@ -5,10 +5,14 @@ import { Container, Row, Col, Button } from "reactstrap";
 import API from "../API";
 import Spiner from "../Components/spiner";
 import TeacherCard from "../Components/teacher_card";
+import { useTranslation } from "react-i18next";
+
 
 const AllTeacher = () => {
   const [page, setPage] = useState(0);
   const [allTeachers, setAllTeachers] = useState([]);
+  const { t } = useTranslation();
+
   let count = 6;
 
   useEffect(() => {
@@ -52,7 +56,7 @@ const AllTeacher = () => {
               "d-flex justify-content-lg-between align-items-center mt-5 mb-3 flex-wrap justify-content-center"
             }
           >
-            <p className={"h1 text-uppercase"}>Все учителя</p>
+            <p className={"h1 text-uppercase"}>{t("allTeachers")}</p>
           </Col>
           <Col
             md={12}

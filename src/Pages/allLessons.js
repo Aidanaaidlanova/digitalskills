@@ -26,7 +26,7 @@ const AllLessons = () => {
   const [category, setCategory] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
 
-  const count = 3;
+  const count = 6;
   useEffect(() => {
     document.title = "Все курсы";
     API.getCategoryLessons(choiceID, page, count)
@@ -137,7 +137,7 @@ const AllLessons = () => {
               result.data.length > 0 ? (
                 result.data.map((item, idx) => {
                   return (
-                    <Col key={idx} md={4}>
+                    <Col key={idx} md={4} className="mb-3">
                       <Card {...item} />
                     </Col>
                   );

@@ -5,6 +5,10 @@ p {
 .news-content div{
 	width: 100% !important;
 }
+.news-content div img{
+  width: 100% !important;
+  height: auto !important;
+}
 .news-main-img{
   min-width: 320px;
 }

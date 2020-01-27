@@ -153,11 +153,13 @@ import Spiner from "../Components/spiner";
                   "d-flex justify-content-center justify-content-lg-between align-items-center my-5 flex-wrap"
                 }
               >
-                <p className={"h1"}>{t("ourLessons")}</p>
+                <p className={"h1 mb-3"}>{t("ourLessons")}</p>
 
                 <div className={"d-inline-block"}>
                   <Link to="/lessons">
-                    <button className="lessons_button">{t("allLessons")}</button>
+                    <button className="lessons_button">
+                      {t("allLessons")}
+                    </button>
                   </Link>
                 </div>
               </Col>
@@ -181,10 +183,10 @@ import Spiner from "../Components/spiner";
               <Col
                 md={12}
                 className={
-                  "d-flex  justify-content-center justify-content-lg-between my-5 flex-wrap"
+                  "d-flex justify-content-center justify-content-lg-between align-items-center my-5 flex-wrap"
                 }
               >
-                <p className={"h1"}>{t("teachers")}</p>
+                <p className={"h1 mb-3"}>{t("teachers")}</p>
                 <div className={"d-inline-block"}>
                   <Link to="/all-teachers">
                     <button className="lessons_button">
