@@ -2,7 +2,7 @@
 /*	scroll-behavior: smooth;*/
 /*}*/
 .mainphoto{
-	background: url('../assets/img/main.png') center center;
+	background: url('../assets/img/main.jpg') center center / cover;
 	/*background-size: cover;*/
 	background-repeat: no-repeat !important;
 
