@@ -141,7 +141,8 @@ import Spiner from "../Components/spiner";
         <div className="photo2 d-flex align-items-end mt-5">
           <Container>
             <p className={"h1 text-light mb-3 mb-sm-5 banner2"}>
-              {t("digitalTitle")}
+                  {t("digitalTitle")}<br/>
+                  {t("digitalSubTitle")}
             </p>
           </Container>
         </div>
