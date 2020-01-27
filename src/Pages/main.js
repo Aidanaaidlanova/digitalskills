@@ -101,7 +101,7 @@ import Spiner from "../Components/spiner";
               }
             >
               <Col md={10}>
-                <p className={"h2 main-page-heading-text d-sm-none "}>
+                <p className={"h2 main-page-heading-text d-sm-none"}>
                   {t("ourMission")}
                 </p>
                 <img src={blockphoto} className={"img-fluid"} alt="" />
