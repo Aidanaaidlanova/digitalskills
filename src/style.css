@@ -112,6 +112,15 @@
     opacity: 0.4;
 }
 
+.card__hover {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card__hover:hover {
+    transform: translateY(-10px);
+    /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;*/
+}
+
 @media (max-width: 768px) {
     .card_custom_title {
         font-size: 14px;
