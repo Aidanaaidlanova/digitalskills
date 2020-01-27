@@ -16,7 +16,6 @@ import API from "../API";
 import Spiner from "../Components/spiner";
 import { useTranslation } from "react-i18next";
 
-
 const AllLessons = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState(0);
@@ -107,8 +106,7 @@ const AllLessons = () => {
                     key={0}
                     onClick={e => setChoice(e.target.innerText)}
                     className={"dropdown-item-custom"}
-                  >
-                  </DropdownItem>
+                  >{t("all")}</DropdownItem>
                   {category &&
                     category.map((item, idx) => {
                       return (
