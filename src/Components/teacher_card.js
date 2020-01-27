@@ -39,7 +39,7 @@ const TeacherCard = ({id,image,name,surname,position,language,about}) => {
           <CardText className={"text-muted teacher-card-about-text"}>
             {about}
           </CardText>
-          <p>
+          <p className="mt-3">
             {t("teachinglanguage")}{" "}
             <b>{language === "ru" ? t("russianLang") : t('kyrgyzLang')}</b>
           </p>

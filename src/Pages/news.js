@@ -30,10 +30,10 @@ const News = ({ match }) => {
               <Col md={8} >
                 <p className={"h1"}>{data.title}</p>
                 <div className={"w-100 d-flex justify-content-between my-3"}>
-                  <b>
+                  <p className="text-muted">
                     {moment(data.pub_date).format("Do MMMM YYYY")}
 
-                  </b>
+                  </p>
                   <p className={"text-muted"}>
                     {data.views}{" "}
                     {t("views")}

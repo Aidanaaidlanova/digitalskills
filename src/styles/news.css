@@ -9,6 +9,14 @@ p {
   width: 100% !important;
   height: auto !important;
 }
+.news-content div p,h3,span{
+  font-family: 'PT Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 30px !important;
+}
+
+
 .news-main-img{
   min-width: 320px;
 }
