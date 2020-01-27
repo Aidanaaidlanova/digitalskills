@@ -109,6 +109,10 @@
   width: 100% !important;
   height: auto !important;
 }
+.lesson-content-block iframe {
+   width: 100% !important;
+
+}
 
 
 .lesson-header-collapse {
@@ -148,5 +152,5 @@
   .lesson-content-block {
     padding: 10px 20px !important;
   }
- 
+
 }
