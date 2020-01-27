@@ -48,7 +48,8 @@ const TeacherPage = ({ match }) => {
               <p className={"teacher-archive"}>{about}</p>
               <p className="my-3">
                 {t("teachinglanguage")}{" "}
-                <b>{language === "ru" ? "Русский" : "Кыргызский"}</b>
+                <b>{language === "ru" ? t("russianLang") : t('kyrgyzLang')}</b>
+                
               </p>
             </Col>
             <Col

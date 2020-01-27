@@ -43,6 +43,7 @@ const LessonHeader = props => {
                   setSelect={props.setSelect}
                   select={props.select}
                   index={index}
+                key={data.id}
                 />
               ))
             : ""}

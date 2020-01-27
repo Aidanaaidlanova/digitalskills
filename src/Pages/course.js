@@ -59,7 +59,8 @@ const Course = props => {
               <p className={"teacher-archive mt-4"}>
                 <span className={"text-muted "}>{t("language")}: </span>
                 <b className="courses-blue-color">
-                  {language === "ru" ? "Русский" : "Кыргызский"}
+                  <b>{language === "ru" ? t("russianLang") : t('kyrgyzLang')}</b>
+                  
                 </b>
               </p>
               <p className={"teacher-archive"}>
@@ -155,7 +156,8 @@ const Course = props => {
               </p>
               <p className="course-about text-lg-left text-center my-3">
                 {t("teachinglanguage")}{" "}
-                <b>{teacher.language === "ru" ? "Русский" : "Кыргызский"}</b>
+                <b>{language === "ru" ? t("russianLang") : t('kyrgyzLang')}</b>
+               
               </p>
             </Col>
           </Row>
