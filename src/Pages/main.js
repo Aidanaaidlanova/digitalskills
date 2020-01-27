@@ -85,7 +85,7 @@ import Spiner from "../Components/spiner";
                 md={10}
                 className={"d-flex justify-content-center flex-column"}
               >
-                <p className={"h2 main-page-heading-text d-none d-sm-block"}>
+                <p className={"h2 main-page-heading-text d-none d-sm-block my-2"}>
                   {t("ourMission")}
                 </p>
                 <p className={"text-muted main-page-text"}>
@@ -101,7 +101,7 @@ import Spiner from "../Components/spiner";
               }
             >
               <Col md={10}>
-                <p className={"h2 main-page-heading-text d-sm-none"}>
+                <p className={"h2 main-page-heading-text d-sm-none "}>
                   {t("ourMission")}
                 </p>
                 <img src={blockphoto} className={"img-fluid"} alt="" />
@@ -127,7 +127,7 @@ import Spiner from "../Components/spiner";
                 md={10}
                 className={"d-flex justify-content-center flex-column"}
               >
-                <p className={"h2 main-page-heading-text d-none d-sm-block"}>
+                <p className={"h2 main-page-heading-text d-none d-sm-block my-2"}>
                   {t("ourObjectiveTitle")}
                 </p>
                 <p className={"text-muted main-page-text"}>
