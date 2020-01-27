@@ -53,7 +53,8 @@ import Spiner from "../Components/spiner";
                   className={"mb-2 mb-md-5 main-page-heading-img-logo"}
                 />
                 <p className={"text-light h1 main-page-heading-title"}>
-                  {t("digitalTitle")}
+                  {t("digitalTitle")}<br/>
+                  {t("digitalSubTitle")}
                 </p>
                 <p
                   className={
