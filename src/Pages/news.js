@@ -9,10 +9,9 @@ import Spiner from "../Components/spiner";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 
-
 const News = ({ match }) => {
   const [data, setData] = useState([]);
-  const { t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     API.getOneNews(match.params.id, "ru")
@@ -27,16 +26,14 @@ const News = ({ match }) => {
         <Row className={"d-flex justify-content-center mt-5"}>
           {data && data.id ? (
             <>
-              <Col md={8} >
+              <Col md={8}>
                 <p className={"h1"}>{data.title}</p>
                 <div className={"w-100 d-flex justify-content-between my-3"}>
                   <p className="text-muted">
                     {moment(data.pub_date).format("Do MMMM YYYY")}
-
                   </p>
                   <p className={"text-muted"}>
-                    {data.views}{" "}
-                    {t("views")}
+                    {data.views} {t("views")}
                   </p>
                 </div>
               </Col>

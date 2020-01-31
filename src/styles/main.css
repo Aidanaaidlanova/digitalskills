@@ -1,6 +1,10 @@
-/*html {*/
-/*	scroll-behavior: smooth;*/
-/*}*/
+html {
+scroll-behavior: smooth;
+}
+.header-icon{
+	width: 70px;
+	height: 70px;
+}
 .mainphoto{
 	background: url('../assets/img/main.jpg') center center / cover;
 	/*background-size: cover;*/
@@ -102,6 +106,12 @@ color: #2D5199;
 	text-align: center;
 	border:0px;
 	color: #FFFFFF;
+}
+.lessons_button:hover{
+	color: #2D5199;
+	border:2px solid #2D5199;
+	background: #fff;
+  transition: 0.5s;	  
 }
 .head-text{
 	margin-bottom: 40px!important;

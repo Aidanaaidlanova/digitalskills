@@ -44,5 +44,7 @@
     "all": "Все",
     "comeBack": " Вернуться назад",
     "russianLang":"русский",
-    "kyrgyzLang": "кыргызский"
+    "kyrgyzLang": "кыргызский",
+    "notFound":"У нас нет такой страницы :(",
+    "backMainBtn": "На главную"
 }

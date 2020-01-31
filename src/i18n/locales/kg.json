@@ -44,7 +44,9 @@
      "all": "Бардык сабактар",
      "comeBack": " Артка кайтуу",
     "russianLang":"орусча",
-    "kyrgyzLang":"кыргызча"
+    "kyrgyzLang":"кыргызча",
+    "notFound": "Бизде мындай баракча жок :(",
+    "backMainBtn": "Артка кайтуу"
 
 
 

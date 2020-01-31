@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import "../styles/main.css";
 import { Link } from "react-router-dom";
-import logo from "../assets/icon/image 54.png";
+import logo from "../assets/icon/digi logo.svg";
 import { useTranslation } from 'react-i18next';
 
 
@@ -39,7 +39,7 @@ const Example = () => {
       <Container fluid>
         <NavbarBrand tag={"div"}>
           <Link to="/">
-            <img src={logo} alt={logo} />
+            <img className="header-icon" src={logo} alt={logo} />
           </Link>
         </NavbarBrand>
 
