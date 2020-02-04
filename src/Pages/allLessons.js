@@ -24,29 +24,33 @@ const AllLessons = () => {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const count = 6;
+
   useEffect(() => {
     document.title = "Все курсы";
-    API.getCategoryLessons(choiceID, page, count)
-      .then(res => setCategoryData(res.data))
-      .catch(e => console.error(e));
-  }, [choiceID]);
-
-  useEffect(() => {
-    API.getCategoryLessons(choiceID, page, count)
-      .then(res => setCategoryData(res.data))
-      .catch(e => console.error(e));
-  }, [page]);
-
-  useEffect(() => {
-    API.getAllLessons(page, count)
-      .then(res => setData(res.data))
-      .catch(e => console.error(e));
     API.getCategory()
       .then(res => setCategory(res.data))
       .catch(e => console.error(e));
+  }, []);
+
+  useEffect(() => {
+    API.getAllLessons(page, count)
+      .then(res => {
+        setData(res.data);
+        setLoading(true);
+      })
+      .catch(e => console.error(e));
   }, [page]);
+
+  useEffect(() => {
+    API.getCategoryLessons(choiceID, page, count)
+      .then(res => {
+        setCategoryData(res.data);
+        setLoading(true);
+      })
+      .catch(e => console.error(e));
+  }, [page, choiceID]);
 
   let result;
   if (choice === "Все") {
@@ -68,7 +72,10 @@ const AllLessons = () => {
               : "shadow all-lessons-pagination all-lessons-pagination-active rounded-0 mr-3 bg-white"
           }
           color={"faded"}
-          onClick={() => setPage(i)}
+          onClick={() => {
+            setPage(i);
+            setLoading(false);
+          }}
         >
           {i + 1}
         </Button>
@@ -104,9 +111,13 @@ const AllLessons = () => {
                 <DropdownMenu className={"border-0 rounded-0 shadow w-100"}>
                   <DropdownItem
                     key={0}
-                    onClick={e => setChoice(e.target.innerText)}
+                    onClick={e => {
+                      setChoice(e.target.innerText);
+                    }}
                     className={"dropdown-item-custom"}
-                  >{t("all")}</DropdownItem>
+                  >
+                    {t("all")}
+                  </DropdownItem>
                   {category &&
                     category.map((item, idx) => {
                       return (
@@ -116,6 +127,7 @@ const AllLessons = () => {
                             setChoice(e.target.innerText);
                             setChoiceID(item.id);
                             setPage(0);
+                            setLoading(false);
                           }}
                           className={"dropdown-item-custom"}
                         >
@@ -127,12 +139,13 @@ const AllLessons = () => {
               </UncontrolledDropdown>
             </div>
           </Col>
+          {console.log(result, loading)}
           <Col
             md={12}
             className={"d-flex justify-content-around mt-3 flex-wrap mb-5"}
           >
-            {result && result.data ? (
-              result.data.length > 0 ? (
+            {loading ? (
+              result && result.data.length > 0 ? (
                 result.data.map((item, idx) => {
                   return (
                     <Col key={idx} md={4} className="mb-3">

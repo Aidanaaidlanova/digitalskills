@@ -7,22 +7,24 @@ import Spiner from "../Components/spiner";
 import TeacherCard from "../Components/teacher_card";
 import { useTranslation } from "react-i18next";
 
-
 const AllTeacher = () => {
   const [page, setPage] = useState(0);
   const [allTeachers, setAllTeachers] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   let count = 6;
 
   useEffect(() => {
-    document.title = "Все учителя";
+    document.title = "Все тренеры";
     API.allTeachers(page, count)
       .then(res => {
         setAllTeachers(res.data);
+        setLoading(true);
       })
       .catch(e => console.error(e));
-  }, [page]);
+  }, [page, count]);
+
   const createPage = () => {
     let buttons = [],
       pages = Math.ceil(allTeachers.total / count);
@@ -36,7 +38,10 @@ const AllTeacher = () => {
               : "shadow all-lessons-pagination all-lessons-pagination-active rounded-0 mr-3 bg-white"
           }
           color={"faded"}
-          onClick={() => setPage(i)}
+          onClick={() => {
+            setPage(i);
+            setLoading(false);
+          }}
         >
           {i + 1}
         </Button>
@@ -62,7 +67,7 @@ const AllTeacher = () => {
             md={12}
             className={"d-flex justify-content-around mt-3 flex-wrap mb-5"}
           >
-            {allTeachers && allTeachers.data ? (
+            {loading ? (
               allTeachers.data.map((item, idx) => {
                 return <TeacherCard key={idx} {...item} />;
               })

@@ -10,18 +10,20 @@ import { Link } from "react-router-dom";
 import "../styles/news.css";
 import { useTranslation } from "react-i18next";
 
-
 const AllNews = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
   const count = 5;
   const { t } = useTranslation();
-
 
   useEffect(() => {
     document.title = "Все новости";
     API.getAllNews(page, count)
-      .then(res => setData(res.data))
+      .then(res => {
+        setData(res.data);
+        setLoading(true);
+      })
       .catch(e => console.error(e));
   }, [page]);
 
@@ -39,7 +41,10 @@ const AllNews = () => {
               : "shadow all-lessons-pagination all-lessons-pagination-active rounded-0 mr-3 bg-white"
           }
           color={"faded"}
-          onClick={() => setPage(i)}
+          onClick={() => {
+            setLoading(false);
+            setPage(i);
+          }}
         >
           {i + 1}
         </Button>
@@ -61,7 +66,7 @@ const AllNews = () => {
             {t("news")}
           </p>
           <div className="col-12">
-            {data && data.data ? (
+            {loading ? (
               <Link
                 to={`/news/${data.data[0].id}`}
                 className={"text-decoration-none text-dark"}
@@ -71,12 +76,9 @@ const AllNews = () => {
                   style={{ minHeight: "312px" }}
                 >
                   <Row>
-                    <Col
-                      className={"px-0 col-12 col-lg-6"}
-                    >
+                    <Col className={"px-0 col-12 col-lg-6"}>
                       <img
                         className={"img-fluid news-main-img  rounded"}
-
                         src={data.data[0].image}
                         alt="img"
                       />
@@ -106,7 +108,7 @@ const AllNews = () => {
               ""
             )}
           </div>
-          {data && data.data && data.data.length ? (
+          {loading ? (
             data.data.map((item, idx) =>
               idx > 0 ? (
                 <Col key={idx} md={6} className={"mb-4"}>
