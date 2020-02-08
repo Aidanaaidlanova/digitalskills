@@ -54,7 +54,7 @@ const AllLessons = () => {
   }, [page, choiceID]);
 
   let result;
-  if (choice === "Все") {
+  if (choice === "Все" || choice === "Бардык сабактар") {
     result = data;
   } else {
     result = categoryData;
@@ -140,13 +140,13 @@ const AllLessons = () => {
               </UncontrolledDropdown>
             </div>
           </Col>
-          {console.log(result, loading)}
           <Col
             md={12}
             className={"d-flex justify-content-around mt-3 flex-wrap mb-5"}
           >
+            {console.log(result)}
             {loading && result.data && result ? (
-              result && result.data.length > 0 ? (
+              loading ? (
                 result.data.map((item, idx) => {
                   return (
                     <Col key={idx} md={4} className="mb-3">
@@ -155,7 +155,7 @@ const AllLessons = () => {
                   );
                 })
               ) : (
-                ""
+                "s"
               )
             ) : (
               <Spiner />
