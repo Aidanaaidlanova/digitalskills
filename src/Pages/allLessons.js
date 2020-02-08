@@ -145,7 +145,7 @@ const AllLessons = () => {
             md={12}
             className={"d-flex justify-content-around mt-3 flex-wrap mb-5"}
           >
-            {loading && result ? (
+            {loading && result.data && result ? (
               result && result.data.length > 0 ? (
                 result.data.map((item, idx) => {
                   return (
