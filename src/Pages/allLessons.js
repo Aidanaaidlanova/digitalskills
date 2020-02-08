@@ -38,6 +38,7 @@ const AllLessons = () => {
     API.getAllLessons(page, count)
       .then(res => {
         setData(res.data);
+        console.log(res.data);
         setLoading(true);
       })
       .catch(e => console.error(e));
@@ -144,7 +145,7 @@ const AllLessons = () => {
             md={12}
             className={"d-flex justify-content-around mt-3 flex-wrap mb-5"}
           >
-            {loading ? (
+            {loading && result ? (
               result && result.data.length > 0 ? (
                 result.data.map((item, idx) => {
                   return (
