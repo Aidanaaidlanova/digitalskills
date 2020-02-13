@@ -106,7 +106,7 @@
 }
 
 .lesson-content-block div img {
-  width: 100% !important;
+  /* width: 100% !important; */
   height: auto !important;
 }
 .lesson-content-block iframe {
@@ -119,8 +119,13 @@
   display: none;
 }
 
+
 @media only screen and (max-width: 991px) {
-  
+  .lesson-content-block div img {
+    width: 100% !important;
+    /* height: 50% !important; */
+    padding: 0  !important;
+  }
 
   .lesson-header-title {
     display: none;
