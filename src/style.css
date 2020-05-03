@@ -20,10 +20,10 @@
 }
 
 .card_custom_button {
-    border: 2px solid #2D5199 !important;
+    border: 1.5px solid #2D5199 !important;
     color: #2D5199 !important;
-    width: 190px !important;
-    height: 55px;
+    width: 175px !important;
+    height: 45px;
 }
 
 .card_custom_button:hover {

@@ -5,6 +5,9 @@ scroll-behavior: smooth;
 	width: 70px;
 	height: 70px;
 }
+.header{
+	height: 75px;
+}
 .mainphoto{
 	background: url('../assets/img/main.jpg') center center / cover;
 	/*background-size: cover;*/
@@ -226,6 +229,11 @@ p[style] {
 
 
 
+@media (max-width: 776px) {
+	.header{
+		height: auto;
+	}
+}
 
 
 @media (max-width: 425px) {

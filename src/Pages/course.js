@@ -163,14 +163,16 @@ const Course = props => {
           </Row>
           <Col className={"col-12 my-5"}>
             <Link className="text-decoration-none" to={`/lesson/${id}`}>
-              <button className="d-flex justify-content-center align-center m-auto teacher-page-btn">
+              <button className="d-flex justify-content-center align-items-center m-auto teacher-page-btn">
                 {t("openCourse")}
               </button>
             </Link>
           </Col>
         </Container>
       ) : (
-        <Spiner />
+        <Container>
+          <Spiner />
+        </Container>
       )}
 
       <Footer />
