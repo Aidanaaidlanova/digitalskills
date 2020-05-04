@@ -1,4 +1,4 @@
-FROM node:13.14
+FROM node:12.6.1
 
 # set working directory
 WORKDIR /opt/services/front
